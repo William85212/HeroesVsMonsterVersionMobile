@@ -9,7 +9,24 @@ namespace HeroesVsMonsterVersionMobile.Classes.Rang3.Monster_
 {
     public class Dragonnet : Monster, IOr, ICuir
     {
-        public int Cuir { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int Or { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        private int _or;
+        public int Or
+        {
+            get { return _or; }
+            set { _or = value; }
+        }
+
+        private int _cuir;
+        public int Cuir
+        {
+            get { return _cuir; }
+            set { _cuir = value; }
+        }
+
+        public Dragonnet()
+        {
+            Or = De.De6Face();
+            Cuir = De.De4Face();
+        }
     }
 }

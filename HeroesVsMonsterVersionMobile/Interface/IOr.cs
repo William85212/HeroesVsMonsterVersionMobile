@@ -8,6 +8,6 @@ namespace HeroesVsMonsterVersionMobile.Interface
 {
     interface IOr
     {
-        int Or { get;  set; }
+        int Or { get;  }
     }
 }

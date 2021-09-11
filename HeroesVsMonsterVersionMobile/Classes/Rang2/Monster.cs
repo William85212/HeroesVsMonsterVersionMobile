@@ -10,8 +10,6 @@ namespace HeroesVsMonsterVersionMobile.Classes
     {
         public Monster()
         {
-            this.Or = rdm.Next(1,7);
-            this.Cuir = rdm.Next(1,5);
 
         }
 

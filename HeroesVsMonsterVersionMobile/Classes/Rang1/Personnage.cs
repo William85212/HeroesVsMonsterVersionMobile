@@ -13,28 +13,7 @@ namespace HeroesVsMonsterVersionMobile.Classes
         public int Force { get; private set; }
         public int PointsDeVie { get; private set; }
         private int _PoitsDeVieInitial { get; set; }
-        //private int _pointsDeVie;
-
-        //public int MyProperty
-        //{
-        //    get { return _pointsDeVie; }
-        //    set { _pointsDeVie = value; }
-        //}
-
-        //private int _or;
-        //public int Or
-        //{
-        //    get { return _or; }
-        //    set { _or = value; }
-        //}
-        //private int _cuir;
-
-        //public int Cuir
-        //{
-        //    get { return _cuir; }
-        //    set { _cuir = value; }
-        //}
-
+       
         public void tcheck()
         {
             PointsDeVie = _PoitsDeVieInitial;

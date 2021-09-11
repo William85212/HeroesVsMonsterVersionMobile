@@ -8,6 +8,6 @@ namespace HeroesVsMonsterVersionMobile.Interface
 {
     interface ICuir
     {
-        int Cuir { get; set; }
+        int Cuir { get; }
     }
 }
