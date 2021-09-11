@@ -34,17 +34,13 @@ namespace HeroesVsMonsterVersionMobile.Classes
 
         public void DepouillerRichesse(Monster monster)
         {
-            if (monster is Dragonnet) //id donne de l'or et du cuir 
+            if (monster is IOr)
             {
-
+                this.Or += ((IOr)monster).Or;
             }
-            if (monster is Loup) // donne du cuir 
+            if (monster is ICuir)
             {
-
-            }
-            if (monster is Orque) //donne de l'or
-            {
-
+                this.Or += ((ICuir)monster).Cuir;
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HeroesVsMonsterVersionMobile.Classes.Rang3.Monster_;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace HeroesVsMonsterVersionMobile.Classes
     public abstract class Personnage
     {
         public Random rdm = new Random();
+
         public int Endurance { get; private set; }
         public int Force { get; private set; }
         public int PointsDeVie { get; private set; }
@@ -24,7 +26,7 @@ namespace HeroesVsMonsterVersionMobile.Classes
             Force = CalculForceEndurance();
             Endurance = CalculForceEndurance();
             PointsDeVie = Modificateur();
-            PointsDeVie = _PoitsDeVieInitial;
+           _PoitsDeVieInitial = PointsDeVie;
         }
        
 
@@ -98,7 +100,19 @@ namespace HeroesVsMonsterVersionMobile.Classes
         {
             this.PointsDeVie -= degats;
         }
-       
+
+        public void Bonus(Monster monster)
+        {
+            if (monster is Orque)
+            {
+                this.Force++;
+            }
+            if (monster is Dragonnet)
+            {
+                this.Endurance++;
+            }
+        }
+
         public void Mourir()
         {
             Console.WriteLine($"Viens de mourrir {this.GetType().Name}");

@@ -27,6 +27,7 @@ namespace HeroesVsMonsterVersionMobile.Classes.Rang3.Monster_
         {
             Or = De.De6Face();
             Cuir = De.De4Face();
+            Bonus(this);
         }
     }
 }
