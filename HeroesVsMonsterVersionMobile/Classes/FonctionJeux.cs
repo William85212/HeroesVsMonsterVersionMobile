@@ -16,10 +16,15 @@ namespace HeroesVsMonsterVersionMobile.Classes
         }
         public static Heros ChoixHeros()
         {
-            int choix;
-            while (!int.TryParse(Console.ReadLine(), out choix) && choix != 1 || choix != 2)
-            {
-            }
+            int choix = 1;
+            //bool convertion = int.TryParse(Console.ReadLine(), out choix);
+            //bool choix1 = choix == 1? true : false;
+            //bool choix2 = choix == 2 ? true : false;
+
+            //Console.WriteLine($"{convertion}-{choix1}-{choix2}");
+            //while (!(int.TryParse(Console.ReadLine(), out choix)) && choix == 1 || choix == 2)
+            //{
+            //}
             return choix == 1 ? new Humain() : new Nain(); 
         }
         public static Monster MonsterRandom()

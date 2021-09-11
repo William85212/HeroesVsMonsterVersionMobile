@@ -9,13 +9,27 @@ namespace HeroesVsMonsterVersionMobile.Classes
 {
     public abstract class Personnage
     {
+        public event Action<Personnage> DecesPersoEvent = null;
+        public event Action<Personnage, int> SubitsDegatsEvent = null;
         public Random rdm = new Random();
 
         public int Endurance { get; private set; }
         public int Force { get; private set; }
-        public int PointsDeVie { get; private set; }
+        private int PointsDeVie { get;  set; }
         private int _PoitsDeVieInitial { get; set; }
-       
+
+
+        public bool EstVivant
+        {
+            get 
+            {
+                if (PointsDeVie <= 0)
+                    DecesPersoEvent?.Invoke(this);
+                return PointsDeVie > 0 ? true: false ; 
+            }
+        }
+
+
         public void tcheck()
         {
             PointsDeVie = _PoitsDeVieInitial;
@@ -26,7 +40,9 @@ namespace HeroesVsMonsterVersionMobile.Classes
             Force = CalculForceEndurance();
             Endurance = CalculForceEndurance();
             PointsDeVie = Modificateur();
-           _PoitsDeVieInitial = PointsDeVie;
+            _PoitsDeVieInitial = PointsDeVie;
+            DecesPersoEvent += Mourir;
+            SubitsDegatsEvent += AfficherDegats;
         }
        
 
@@ -98,6 +114,7 @@ namespace HeroesVsMonsterVersionMobile.Classes
         }
         public void SubitsDegats(int degats)
         {
+            SubitsDegatsEvent?.Invoke(this, degats);
             this.PointsDeVie -= degats;
         }
 
@@ -113,9 +130,14 @@ namespace HeroesVsMonsterVersionMobile.Classes
             }
         }
 
-        public void Mourir()
+        public void Mourir(Personnage p)
         {
             Console.WriteLine($"Viens de mourrir {this.GetType().Name}");
+            DecesPersoEvent -= Mourir;
+        }
+        public void AfficherDegats(Personnage p, int degats)
+        {
+            Console.WriteLine($"Le {p.GetType().Name} vient de recevoir {degats} points de dégats");
         }
     }
 }
